@@ -1,82 +1,118 @@
-# 📥 Installing the Arduino IDE and Importing Sketches from GitHub
 
-This guide explains how to:
+# 📡 Getting Started with TinyGS
 
-1. Install the **Arduino IDE**
-2. Import an **Arduino sketch** from **GitHub**
-3. Use GitHub to find and clone other Arduino projects
+## 1. 🔐 Create Your TinyGS Account
 
----
+To register your ground station:
 
-## ✅ 1. Installing the Arduino IDE
+1. **Join the official TinyGS Telegram group**  
+   👉 [Join Telegram Group](https://t.me/joinchat/DmYSElZahiJGwHX6jCzB3Q)
 
-### 🔗 Quick Method
-
-- Visit the official website: [https://www.arduino.cc/en/software](https://www.arduino.cc/en/software)
-
-- Follow the installer instructions to complete the installation.
-
-> 💡 **Tip:** You can also use the **Arduino Web Editor** (no installation needed):  
-> [https://create.arduino.cc/editor](https://create.arduino.cc/editor)
+2. **Start a private chat** with the bot [@tinygs_personal_bot](https://t.me/tinygs_personal_bot) and send the following commands:
+   - `/weblogin` – Link your Telegram account and register your email for web access.
+   - `/mqtt` – Receive your personalized MQTT credentials.
 
 ---
 
-## 📁 2. Importing a Sketch from a GitHub Repository to Arduino IDE
+## 2. 🚀 Install the TinyGS Firmware
 
-### 🧭 Steps
+You have two installation options:
 
-1. **Clone using Git (advanced):**
+### ✅ Option 1 – Via the Web Installer
 
-   Make sure Git is installed. Then, in your terminal:
+- Go to the official [TinyGS Flasher](https://installer.tinygs.com)
+- Select your board (e.g. **Heltec WiFi LoRa 32 V3**)
+- Flash the latest firmware directly from your browser
 
-   ```bash
-   git clone git@github.com:Luczerty/Lora-Testing.git
+### 💻 Option 2 – Using PlatformIO in VS Code
 
-2. **Open your Arduino IDE**
+1. Download the latest [TinyGS release from GitHub](https://github.com/G4lile0/tinyGS/releases)
+2. Open the project in **Visual Studio Code** with the **PlatformIO** extension
+3. Make sure your `platformio.ini` file contains:
 
-On the top bar, go to File > Open, and select the file you want to import.
+   ```ini
+   [env:heltec_wifi_lora_32_V3]
+   platform = espressif32@6.5.0
+   board = heltec_wifi_lora_32_V3
+   board_build.mcu = esp32s3
+   framework = arduino
+   ```
 
-![Example](./doc/cp.png)
+4. Connect your board via USB  
+5. Click **"Upload"** in PlatformIO to flash the firmware
 
-3. **Install the library**
-Click on the library icon  and install the HelTech ESP32 Dev-Board
+---
 
-![Install library example](./doc/library.png)
+## 3. ⚙️ Configure Your TinyGS Node
 
-3. **Install the Board Manager**
+1. Connect to the **Wi-Fi network** named `MYTinyGS`
+2. Open a browser and navigate to: `http://192.168.4.1`
+3. Fill in the following configuration:
+   - Your **Wi-Fi SSID and password**
+   - Your **station location**
 
-Click on the icon below the folder icon and install the Arduino ESP32 Board.
+4. Click **Apply**, then **Reset** the device
 
-![Board Manger Example](./doc/boardmanager.png)
+5. Reconnect to your usual Wi-Fi  
+   The device should now appear on your local network with an IP like:  
+   `http://192.168.1.XX` (the exact number may vary)
 
-You should see your board recognized in the top bar of the Arduino IDE:
+---
 
-![Board recognition Example](./doc/BoardReco.png)
+## 4. 🌐 Access the TinyGS Dashboard
 
-If not, click on "Select other board", choose Heltec WiFi LoRa 32, and click OK.
-5. **Upload it on your board**
+Once the device is connected:
 
-Finally, click on Upload.
+- Go to [https://dashboard.tinygs.com](https://dashboard.tinygs.com)
+- Log in with the email you registered via `/weblogin`
+- View your station's activity and statistics
 
-![Board recognition Example](./doc/upload.png)
+---
 
-## 🔐 License Problem (Heltec LoRa Board)
+## 5. 🎛️ Radio Tuning
 
-If you encounter the following error:
+Refer to the full guide here:  
+👉 [Radio Tuning Guide on GitHub](https://github.com/G4lile0/tinyGS/wiki/Radio-Tuning-Guide)
 
+### Configuration Parameters
 
-Please provide a correct license! For more information:
-http://www.heltec.cn/search/
-ESP32ChipID=XXXXXXXXXXX
+| Parameter | Description |
+|----------|-------------|
+| `mode`   | Radio mode: `LoRa` or `FSK` |
+| `freq`   | Frequency in MHz (e.g. `434.000`) |
+| `bw`     | Bandwidth in kHz (e.g. `125.0`) |
+| `sf`     | Spreading Factor (e.g. `9`) |
+| `cr`     | LoRa Coding Rate (e.g. `5`) |
+| `sw`     | Sync Word (e.g. `35`) |
+| `pwr`    | Transmission Power (e.g. `22`) |
+| `cl`     | Current Limit in mA (e.g. `120`) |
+| `pl`     | Preamble Length (e.g. `8`) |
+| `gain`   | LNA Gain (`0` = auto) |
+| `crc`    | Enable CRC (`true` or `false`) |
+| `fldro`  | Frequency Drift: `0` = disable, `1` = enable, `2` = auto |
+| `sat`    | Satellite name |
+| `NORAD`  | NORAD number of the satellite |
+| `reg`    | Custom register overrides (advanced use) |
 
+### Example Configuration
 
-### ✅ Solution
+```json
+{
+  "mode": "LoRa",
+  "freq": 434.000,
+  "bw": 125.0,
+  "sf": 9,
+  "cr": 5,
+  "sw": 35,
+  "pwr": 22,
+  "cl": 120,
+  "pl": 8,
+  "gain": 0,
+  "crc": true,
+  "fldro": 1,
+  "sat": "not registered yet",
+  "NORAD": "expecttochange"
+}
+```
 
-1. Go to the official Heltec license page:  
-   👉 [http://www.heltec.cn/search/](http://www.heltec.cn/search/)
-
-2. Enter your `ESP32ChipID` to retrieve your license key.
-
-3. Open the **Serial Monitor** in the Arduino IDE (baud: 115200).
-
-4. Send the following command in the Serial input, replacing with your actual license values:
+---
