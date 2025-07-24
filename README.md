@@ -1,3 +1,12 @@
+# 📁 What You Will Find in This Repository
+
+## 📌 Summary
+
+1. A guide to install and configure TinyGS, including a setup example for the Heltec LoRa 32 V3.
+2. A script to send and receive messages for radio range testing.
+3. A script for the ground station to communicate with Coconut using the Heltec LoRa 32 V3.
+4. An updated version of `thebridget.py` with a debug option.
+
 
 # 📡 Getting Started with TinyGS
 
@@ -116,3 +125,5 @@ Refer to the full guide here:
 ```
 
 ---
+
+#
