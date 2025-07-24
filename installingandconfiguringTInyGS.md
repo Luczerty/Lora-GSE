@@ -117,5 +117,4 @@ Refer to the full guide here:
 
 ---
 
-# Difference between the 2 bridge scrpt 
 
