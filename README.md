@@ -24,7 +24,7 @@
 - 🧩 **New Version of `thebridge.py` with Debug Option**  
   → [`./new_bridge/README.md`](./new_bridge/README.md)
 
--  **he guide to install a script***  
+-  **The guide to install a script***  
   → 🔽 See below for instructions
 
 
