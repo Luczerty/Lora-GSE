@@ -24,8 +24,8 @@
 - 🧩 **New Version of `thebridge.py` with Debug Option**  
   → [`./new_bridge/README.md`](./new_bridge/README.md)
 
- - **LoRa radio Range Test Repor** 
-  ['Lora range test report](https://docs.google.com/document/d/1vxGPzcisJnAlRVnOyCcJEj1ERbSNojEU1-XNJQtcNaU/edit?mode=html&tab=t.0)
+-  **LoRa radio Range Test Report**  
+  → ['Lora range test report](https://docs.google.com/document/d/1vxGPzcisJnAlRVnOyCcJEj1ERbSNojEU1-XNJQtcNaU/edit?mode=html&tab=t.0)
 
 -  **The guide to install a script***  
   → 🔽 See below for instructions
