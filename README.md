@@ -16,13 +16,13 @@
   → [`./installingandconfiguringTinyGS.md`](./installingandconfiguringTinyGS.md)
 
 - 📡 **Radio Range Testing Script**  
-  → [`./other script/README.md`](./other%20script/README.md)
+  → [`./other script/README.md`](./other scripts/README.md)
 
 - 🛰️ **Ground Station Scripts (Coconut Communication)**  
   → [`./GSE/README.md`](./GSE/README.md)
 
 - 🧩 **New Version of `thebridge.py` with Debug Option**  
-  → [`./new bridge/README.md`](./new%20bridge/README.md)
+  → [`./new bridge/README.md`](./new bridge/README.md)
 
 -  **he guide to install a script***  
   → 🔽 See below for instructions
